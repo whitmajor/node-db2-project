@@ -1,5 +1,6 @@
 const Car= require("./cars-model")
 
+
 const checkCarId = async(req, res, next) => {
   // DO YOUR MAGIC
   try{
@@ -19,14 +20,34 @@ const checkCarId = async(req, res, next) => {
 const checkCarPayload = (req, res, next) => {
   // DO YOUR MAGIC
 
+ if(!req.body.vin) return next({
+   status:400,
+    message:"vin is missing",
+  })
+  if(!req.body.vin) return next({
+    status:400,
+     message:"make is missing",
+   })
+   if(!req.body.vin) return next({
+    status:400,
+     message:"model is missing",
+   })
+   if(!req.body.vin) return next({
+    status:400,
+     message:"mileage is missing",
+   })
+     
+  next()
 }
 
 const checkVinNumberValid = (req, res, next) => {
   // DO YOUR MAGIC
+  next()
 }
 
 const checkVinNumberUnique = (req, res, next) => {
   // DO YOUR MAGIC
+  next()
 }
 
 module.exports = {
